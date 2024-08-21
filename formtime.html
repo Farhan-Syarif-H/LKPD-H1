@@ -1,0 +1,79 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input dengan Timer</title>
+    <style>
+        /* Styling untuk form berbaris ke bawah */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+        input, select, button {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        #output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Form Input</h1>
+        <form id="form">
+            <input type="text" id="nama" placeholder="Nama" required>
+            <input type="number" id="umur" placeholder="Umur" required>
+            <select id="gender" required>
+                <option value="">Pilih Gender</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        let formSubmitted = false;
+
+        // Tangani event submit dari form
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form submit secara default
+
+            formSubmitted = true; // Menandai bahwa form telah berhasil disubmit
+
+            const nama = document.getElementById('nama').value;
+            const umur = document.getElementById('umur').value;
+            const gender = document.getElementById('gender').value;
+
+            // Buat pesan output
+            const outputText = `Nama: ${nama} <br> Umur: ${umur} <br> Gender: ${gender}`;
+
+            // Tampilkan output di dalam div
+            document.getElementById('output').innerHTML = outputText;
+        });
+
+        // Timer 10 detik untuk memeriksa apakah form sudah disubmit
+        setTimeout(() => {
+             alert('Waktu pengerjaan telah habis!');
+        }, 10000);
+    </script>
+</body>
+</html>

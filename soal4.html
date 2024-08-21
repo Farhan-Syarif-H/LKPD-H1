@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Opacity Changer</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin-top: 50px;
+        }
+        img {
+            width: 300px;
+            height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <label for="imageSelect">Pilih Gambar:</label>
+    <select id="imageSelect">
+        <option value="1">Gambar 1</option>
+        <option value="2">Gambar 2</option>
+        <option value="3">Gambar 3</option>
+    </select>
+
+    <label for="opacitySelect">Pilih Opacity:</label>
+    <select id="opacitySelect">
+        <option value="1">1</option>
+        <option value="0.5">0.5</option>
+        <option value="0.2">0.2</option>
+    </select>
+
+    <button onclick="changeOpacity()">Submit</button>
+
+    <img id="image1" src="singapore.jpg" alt="Gambar 1" style="display: none;">
+    <img id="image2" src="logo1.jpg" alt="Gambar 2" style="display: none;">
+    <img id="image3" src="amerika.jpg" alt="Gambar 3" style="display: none;">
+</div>
+
+<script>
+    function changeOpacity() {
+        // Mendapatkan nilai yang dipilih
+        const selectedImage = document.getElementById('imageSelect').value;
+        const selectedOpacity = document.getElementById('opacitySelect').value;
+
+        // Menyembunyikan semua gambar
+        document.getElementById('image1').style.display = 'none';
+        document.getElementById('image2').style.display = 'none';
+        document.getElementById('image3').style.display = 'none';
+
+        // Menampilkan gambar yang dipilih dan mengubah opacity-nya
+        const image = document.getElementById('image' + selectedImage);
+        image.style.display = 'block';
+        image.style.opacity = selectedOpacity;
+    }
+</script>
+
+</body>
+</html>
